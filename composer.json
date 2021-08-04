@@ -20,12 +20,14 @@
         }
     ],
     "require": {
-        "php": ">=8.0.1"
+        "php": ">=8.0.1",
+        "ext-ast": "*",
+        "ericfortmeyer/bruny-database-adapters": "^1.0"
     },
     "scripts": {
-        "lint-fix": "composer exec \"phpcbf src --standard=PSR12\"",
-        "analyze": "composer exec phan",
-        "lint": "composer exec \"phpcs src --standard=PSR12\"",
-        "analyze-init": "composer exec \"phan --init\""
+        "analyze": "composer exec -q \"phan --no-progress-bar -S\"",
+        "lint-fix": "composer exec -q \"phpcbf src --standard=PSR12 -q\"",
+        "lint": "composer exec -q \"phpcs src --standard=PSR12\"",
+        "analyze-init": "composer exec -q \"phan --init\""
     }
 }
